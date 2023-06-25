@@ -1,7 +1,13 @@
-web:
-  image: nginx
-  volumes:
-   - ./templates:/etc/nginx/templates
+version: 0.0
+os: linux
+files:
+  - source: /index.html
+    destination: /etc/nginx/templates
+hooks:
+  BeforeInstall:
+    web:
+        image: nginx
+        
   ports:
    - "8080:80"
   environment:
