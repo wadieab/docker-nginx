@@ -1,3 +1,2 @@
 #!/bin/bash
-service httpd start
-
+docker run --name wad-nginx -v /templates:/usr/share/nginx/html:ro -d -p 80:80 nginx
