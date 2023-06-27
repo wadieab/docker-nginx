@@ -2,13 +2,16 @@ version: 0.0
 os: linux
 files:
   - source: /index.html
-    destination: /etc/nginx/templates
+    destination: /usr/share/nginx/html
 hooks:
   BeforeInstall:
-    web:
-        image: nginx
-        
-  ports:
-   - "8080:80"
-  environment:
-   - NGINX_PORT=80
+    - location: scripts/install_dependencies
+      timeout: 300
+      runas: root
+    - location: scripts/start_server
+      timeout: 300
+      runas: root
+  ApplicationStop:
+    - location: scripts/stop_server
+      timeout: 300
+      runas: root
