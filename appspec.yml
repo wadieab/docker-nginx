@@ -9,6 +9,6 @@ hooks:
       timeout: 3000
       runas: root
   ApplicationStop:
-    - location: scripts/install_dependencies
+    - location: scripts/stop_server
       timeout: 3000
       runas: root
