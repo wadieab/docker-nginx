@@ -1,4 +1,5 @@
 #!/bin/bash
 ps -a
+docker stop wad-nginx
 docker rm wad-nginx
 sudo docker run --name wad-nginx -v /templates/index.html:/usr/share/nginx/html:ro -d -p 80:80 nginx
