@@ -1,3 +1,4 @@
 #!/bin/bash
 docker rm wad-nginx
+chmod 777 /templates
 sudo docker run --name wad-nginx -it -v /templates:/usr/share/nginx/html -d -p 80:80 nginx
